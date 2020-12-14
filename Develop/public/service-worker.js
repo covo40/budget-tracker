@@ -5,7 +5,10 @@ const FILES_TO_CACHE = [
     "/index.html",
     "/public/icons/icon-192x192.png",
     "/public/icons/icon-512x512.png",
-    "/public/styles.css"
+    "/public/styles.css",
+    "/public/manifest.webmanifest",
+    "/public/index.js",
+    
 
 ]
 
@@ -16,7 +19,7 @@ const FILES_TO_CACHE = [
 self.addEventListener("install", function (evt) {
     // pre cache image data
     evt.waitUntil(
-        caches.open(DATA_CACHE_NAME).then((cache) => cache.add("/api/images"))
+        caches.open(DATA_CACHE_NAME).then((cache) => cache.add("FILES_TO_CACHE"))
     );
 
     // pre cache all static assets
